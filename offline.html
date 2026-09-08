@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>You're offline — GDG VIT Chennai</title>
+<link rel="icon" href="assets/img/gdg.svg" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#0d0d11" />
+<link rel="apple-touch-icon" href="assets/img/icon-192.png" />
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem("gdg_theme");
+    if (t === "light") document.documentElement.setAttribute("data-theme", "light");
+  } catch(e) {}
+})();
+</script>
+</head>
+<body>
+<div class="brand-stripe"></div>
+<noscript><style>body{opacity:1 !important;}</style></noscript>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<main id="main-content" class="container" style="max-width:480px; text-align:center; padding-top:120px;">
+  <img src="assets/img/gdg.svg" alt="" style="width:40px; margin:0 auto 24px;" />
+  <h1 style="font-size:1.5rem; margin:0 0 10px;">You're offline</h1>
+  <p style="color:var(--text-muted); margin:0 0 28px;">
+    This page hasn't been cached yet. Reconnect and try again — pages you've
+    already visited will keep working offline.
+  </p>
+  <a href="index.html" class="btn btn-primary">Back to home</a>
+</main>
+</body>
+</html>
