@@ -1,0 +1,28 @@
+.lb-table-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: auto;
+  background: var(--bg-raised);
+}
+.lb-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 560px; }
+.lb-table th {
+  text-align: left;
+  padding: 14px 18px;
+  color: var(--text-faint);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+.lb-table td { padding: 14px 18px; border-bottom: 1px solid var(--border); }
+.lb-table tr:last-child td { border-bottom: none; }
+.lb-table tr:nth-child(1) td { background: rgba(255, 212, 94, 0.06); }
+.lb-rank { font-weight: 700; font-variant-numeric: tabular-nums; }
+.lb-handle { font-family: monospace, monospace; }
+.lb-tier {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  text-transform: capitalize;
+}
+.lb-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }

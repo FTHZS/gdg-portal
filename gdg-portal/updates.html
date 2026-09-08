@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Updates — GDG VIT Chennai</title>
+<link rel="icon" href="assets/img/gdg.svg" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/form.css" />
+<link rel="stylesheet" href="css/community.css" />
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#0d0d11" />
+<link rel="apple-touch-icon" href="assets/img/icon-192.png" />
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem("gdg_theme");
+    if (t === "light") document.documentElement.setAttribute("data-theme", "light");
+  } catch(e) {}
+})();
+</script>
+</head>
+<body>
+<div class="brand-stripe"></div>
+<noscript><style>body{opacity:1 !important;}</style></noscript>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/img/gdg.svg" alt="" />
+      GDG VIT Chennai
+    </a>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="index.html#team" data-i18n="nav.team">Team</a>
+      <a href="departments.html" data-i18n="nav.departments">Departments</a>
+      <a href="index.html#events" data-i18n="nav.events">Events</a>
+      <a href="updates.html" class="active" data-i18n="nav.updates">Updates</a>
+      <a href="status.html" data-i18n="nav.status">Check status</a>
+      <a href="admin.html" data-i18n="nav.admin">Admin</a>
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn search-trigger" aria-label="Search / quick nav (Ctrl+K)" title="Quick nav (Ctrl+K or /)">⌘K</button>
+      <button class="icon-btn lang-toggle" aria-label="Switch language">த</button>
+      <button class="icon-btn theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">
+        <span class="icon-moon">🌙</span><span class="icon-sun">☀️</span>
+      </button>
+    </div>
+    <a href="departments.html" class="nav-cta">Apply now</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  </div>
+</nav>
+
+<main id="main-content" class="container" style="max-width: 720px; padding-top: 48px; padding-bottom: 100px;">
+  <div class="section-head">
+    <h2>Chapter updates</h2>
+    <p>Announcements posted by the team — shortlists, deadline changes, new events.</p>
+  </div>
+  <div id="updates-list"></div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="footer-brand">
+          <img src="assets/img/gdg.svg" alt="" />
+          <span>GDG on Campus · VIT Chennai</span>
+        </div>
+        <p data-i18n="footer.about">A student developer community at Vellore Institute of Technology, Chennai — learning and building with Google technologies.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.explore">Explore</h4>
+        <a href="index.html#about" data-i18n="footer.about_link">About the chapter</a>
+        <a href="index.html#team" data-i18n="footer.people">The people</a>
+        <a href="departments.html" data-i18n="nav.departments">Departments</a>
+        <a href="index.html#events" data-i18n="footer.events">Upcoming events</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.contact">Get in touch</h4>
+        <p data-i18n="footer.location">VIT Chennai, Kelambakkam</p>
+        <a href="https://gdg.community.dev/gdg-on-campus-vellore-institute-of-technology-chennai-india/" target="_blank" rel="noopener" data-i18n="footer.community">GDG Community page ↗</a>
+        <a href="status.html" data-i18n="footer.status">Check application status</a>
+      </div>
+    </div>
+    <div class="footer-inner">
+      <span class="footer-credit">© <span data-year></span> GDG on Campus · VIT Chennai. Design by UI/UX dept, developed by Web Dev dept.</span>
+      <div class="footer-links"><a href="admin.html" data-i18n="nav.admin">Admin</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/departments-data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const list = document.getElementById("updates-list");
+  const posts = Announcements.getAll();
+  if (!posts.length) {
+    list.innerHTML = `
+      <div class="state-banner warn">
+        <div><strong>No updates yet</strong><p>Check back once the team posts something — or add one from the <a href="admin.html">admin page</a> to see this in action.</p></div>
+      </div>
+    `;
+    return;
+  }
+  list.innerHTML = posts.map((p) => `
+    <div class="form-card" style="margin-bottom:16px;">
+      <h3 style="margin:0 0 8px;">${p.title.replace(/</g, "&lt;")}</h3>
+      <p style="color:var(--text-muted); margin:0 0 12px;">${p.body.replace(/</g, "&lt;")}</p>
+      <p style="color:var(--text-faint); font-size:0.8rem; margin:0;">${new Date(p.createdAt).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" })}</p>
+    </div>
+  `).join("");
+});
+</script>
+<script src="js/theme.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/command-palette.js"></script>
+</body>
+</html>

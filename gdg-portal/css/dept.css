@@ -1,0 +1,59 @@
+.dept-hero {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.dept-hero .dept-icon { width: 64px; height: 64px; border-radius: 16px; }
+.dept-hero .dept-icon img { width: 32px; height: 32px; }
+.dept-hero h1 { margin: 0 0 6px; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.dept-hero p { margin: 0; color: var(--text-muted); max-width: 56ch; }
+
+.dept-detail-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.stack-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 40px; }
+.stack-pill {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  padding: 20px 22px;
+  margin-bottom: 14px;
+}
+.project-card h4 { margin: 0 0 6px; font-size: 0.98rem; }
+.project-card p { margin: 0; color: var(--text-muted); font-size: 0.87rem; }
+
+.dept-sidebar {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  padding: 24px;
+  position: sticky;
+  top: 90px;
+}
+.dept-sidebar h3 { margin: 0 0 16px; font-size: 0.9rem; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.04em; }
+.dept-sidebar .team-card { background: var(--bg); margin-bottom: 10px; }
+.dept-sidebar .btn { margin-top: 10px; }
+
+.dept-notfound {
+  text-align: center;
+  padding: 90px 20px;
+}
+
+@media (max-width: 860px) {
+  .dept-detail-grid { grid-template-columns: 1fr; }
+  .dept-sidebar { position: static; }
+}

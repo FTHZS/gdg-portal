@@ -1,0 +1,95 @@
+.dept-toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.dept-filter {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.dept-filter:hover { border-color: var(--text-muted); color: var(--text); }
+.dept-filter.active {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.dept-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.dept-card {
+  --tone: var(--blue);
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--tone);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.dept-card:hover {
+  transform: translateY(-3px);
+  background: var(--bg-raised-2);
+}
+.dept-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--tone) 16%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dept-icon img { width: 20px; height: 20px; }
+.dept-card h3 {
+  margin: 0;
+  font-size: 1.08rem;
+}
+.dept-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  flex-grow: 1;
+}
+.dept-lead {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+.dept-apply {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 4px;
+}
+.dept-card:hover .dept-apply { gap: 9px; }
+.dept-apply .arrow { transition: transform 0.15s ease; }
+.dept-card:hover .dept-apply .arrow { transform: translateX(2px); }
+
+.dept-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-faint);
+}
+
+@media (max-width: 860px) {
+  .dept-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .dept-grid { grid-template-columns: 1fr; }
+}

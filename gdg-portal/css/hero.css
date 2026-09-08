@@ -1,0 +1,193 @@
+/* ---------- hero ---------- */
+.hero {
+  padding: 76px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    320px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(138, 180, 248, 0.10),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.hero:hover::before { opacity: 1; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin: 18px 0 20px;
+}
+.hero .lede {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 46ch;
+  margin: 0 0 32px;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.hero-stat b {
+  display: block;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
+.hero-stat span {
+  font-size: 0.82rem;
+  color: var(--text-faint);
+}
+
+/* ---------- countdown ticket ---------- */
+/* ---------- countdown ticket ---------- */
+.ticket-frame {
+  position: relative;
+}
+.ticket-frame::before {
+  content: "";
+  position: absolute;
+  inset: -34px;
+  z-index: 0;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 12% 15%, rgba(138, 180, 248, 0.35), transparent 42%),
+    radial-gradient(circle at 88% 20%, rgba(255, 122, 107, 0.30), transparent 42%),
+    radial-gradient(circle at 85% 88%, rgba(255, 212, 94, 0.28), transparent 42%),
+    radial-gradient(circle at 10% 85%, rgba(110, 231, 160, 0.30), transparent 42%);
+  filter: blur(30px);
+  opacity: 0.8;
+  animation: ticket-glow-drift 10s ease-in-out infinite;
+}
+@keyframes ticket-glow-drift {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.75; }
+  50% { transform: scale(1.06) rotate(2deg); opacity: 0.95; }
+}
+.ticket {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 30px 26px;
+  position: relative;
+  z-index: 1;
+}
+.ticket::before, .ticket::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ticket::before { left: -13px; }
+.ticket::after { right: -13px; }
+.ticket-label {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  margin: 0 0 4px;
+}
+.ticket-dept {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 22px;
+}
+.ticket-divider {
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: 0 0 22px;
+}
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.countdown-unit {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 4px;
+  text-align: center;
+}
+.countdown-unit strong {
+  display: block;
+  font-size: 1.6rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.countdown-unit span {
+  font-size: 0.68rem;
+  color: var(--text-faint);
+  text-transform: lowercase;
+}
+.countdown.expired .countdown-unit strong { color: var(--danger); }
+.ticket-note {
+  margin: 20px 0 0;
+  font-size: 0.82rem;
+  color: var(--text-faint);
+}
+
+/* ---------- info strip ---------- */
+.info-strip {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+}
+.info-strip-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.info-item h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+.info-item p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+/* ---------- tracks preview ---------- */
+.track-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.track-chip {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+.track-chip img { width: 20px; height: 20px; }
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .info-strip-inner { grid-template-columns: repeat(2, 1fr); }
+  .track-preview-grid { grid-template-columns: repeat(2, 1fr); }
+}

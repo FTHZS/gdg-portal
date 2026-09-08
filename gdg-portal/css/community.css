@@ -1,0 +1,158 @@
+/* ---------- team ---------- */
+.team-group { margin-bottom: 40px; }
+.team-group-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 18px;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 18px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.team-card:hover { transform: translateY(-2px); background: var(--bg-raised-2); }
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #0a0a0c;
+}
+.team-card .name { font-size: 0.88rem; font-weight: 700; }
+.team-card .role { font-size: 0.76rem; color: var(--text-faint); }
+
+/* ---------- events ---------- */
+.events-list { display: flex; flex-direction: column; gap: 12px; }
+.event-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  transition: background 0.15s ease;
+}
+.event-row:hover { background: var(--bg-raised-2); }
+.event-row.past { opacity: 0.55; }
+.event-date {
+  flex-shrink: 0;
+  width: 62px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  padding-right: 18px;
+}
+.event-date .month { font-size: 0.72rem; color: var(--coral-text); font-weight: 700; letter-spacing: 0.04em; }
+.event-date .day { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; }
+.event-info { flex-grow: 1; }
+.event-info h4 { margin: 0 0 4px; font-size: 1rem; }
+.event-info p { margin: 0; color: var(--text-faint); font-size: 0.84rem; }
+.event-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+.event-tag { font-size: 0.72rem; }
+
+.events-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- stats recap ---------- */
+.recap {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 48px 40px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
+.recap-copy h2 { margin: 0 0 12px; font-size: clamp(1.5rem, 2.6vw, 2rem); }
+.recap-copy p { color: var(--text-muted); margin: 0 0 26px; max-width: 46ch; }
+.recap-stats { display: flex; gap: 36px; }
+.recap-stat strong {
+  display: block;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.recap-stat span { font-size: 0.8rem; color: var(--text-faint); }
+.recap-visual {
+  aspect-ratio: 4/3;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(138,180,248,0.25), transparent 55%),
+    radial-gradient(circle at 70% 70%, rgba(255,122,107,0.2), transparent 55%),
+    var(--bg-raised-2);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-faint);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 860px) {
+  .recap { grid-template-columns: 1fr; padding: 32px 26px; }
+  .recap-stats { flex-wrap: wrap; row-gap: 20px; }
+  .event-row { flex-wrap: wrap; }
+}
+
+/* ---------- footer (expanded) ---------- */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 36px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.footer-about p {
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  max-width: 34ch;
+  margin: 14px 0 0;
+}
+.footer-col h4 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+  margin: 0 0 14px;
+}
+.footer-col a, .footer-col p {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  margin-bottom: 10px;
+}
+.footer-col a:hover { color: var(--text); }
+.footer-credit {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+
+@media (max-width: 700px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+}
